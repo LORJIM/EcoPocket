@@ -1,0 +1,23 @@
+/*este width ocupa todo el espacio de la pantalla para el componente*/
+:host { 
+	width: 100%;
+}
+/*necesario para que todos los componentes compartan el mismo fondo*/
+body {
+	background-color:transparent;
+}
+.main {
+	white-space:nowrap;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.input-group[name="buscador"] {
+	white-space:nowrap;
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+    padding-left: 50.375rem;
+    width:auto;
+}
