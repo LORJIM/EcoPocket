@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import * as $ from 'jquery';
 import { RegistroComponent } from './registro/registro.component';
 import { HomeComponent } from './home/home.component';
 
