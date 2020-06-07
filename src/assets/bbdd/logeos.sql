@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2020 a las 00:31:05
+-- Tiempo de generación: 08-06-2020 a las 00:30:56
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -25,16 +25,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `acceso`
+-- Estructura de tabla para la tabla `logeos`
 --
 
-CREATE TABLE `acceso` (
+CREATE TABLE `logeos` (
   `ID` int(11) NOT NULL,
-  `Nombre` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `Apellidos` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Usuario` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `Contrasenia` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `Email` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
+  `Fecha` date NOT NULL,
+  `Hora` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 
@@ -43,9 +41,9 @@ CREATE TABLE `acceso` (
 --
 
 --
--- Indices de la tabla `acceso`
+-- Indices de la tabla `logeos`
 --
-ALTER TABLE `acceso`
+ALTER TABLE `logeos`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -53,10 +51,10 @@ ALTER TABLE `acceso`
 --
 
 --
--- AUTO_INCREMENT de la tabla `acceso`
+-- AUTO_INCREMENT de la tabla `logeos`
 --
-ALTER TABLE `acceso`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+ALTER TABLE `logeos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {NavegacionService} from '../navegacion.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {RegistroService} from '../registro.service';
+import {LoginService} from '../login.service';
+import {Login} from '../login';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,10 @@ import {RegistroService} from '../registro.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	
+	usuario:string;
+	contrasenia:string;
 	mensaje:string;
-  constructor(private router: Router,private nav: NavegacionService,private snackBar: MatSnackBar, private reg:RegistroService) { }
+  constructor(private router: Router,private snackBar: MatSnackBar, private reg:RegistroService, private log:LoginService) { }
 
   ngOnInit(): void {
 	//mensaje de resultado del registro, si viene, lo muestra en una popup
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
 
 		})(jQuery);
   }
+datos:Login;
 validacion(){
 	    "use strict";
 	
@@ -79,9 +82,9 @@ validacion(){
 	
 	
 	onLogin(){
-		if(this.validacion()==true){
-			this.nav.data='S'; //indicador de que el log ha sido un exito
-			this.router.navigate(['']); //navega a la pagina principal
+		if(this.validacion()==true){ //si la validacion por front es correcta
+			this.datos=   {usuario: this.usuario, contrasenia: this.contrasenia};
+			this.log.Login(this.datos); //ya es el servicio el que se encarga de lo demas, incluida navegacion
 		}
 	}
 

@@ -5,7 +5,7 @@
         $date=date("d-m-Y");
         $FileName=$date.".log";
         
-        if($archivo = fopen("./LOGS/$FileName", "a"))
+        if($archivo = fopen("./actividad/LOGS/$FileName", "a"))
         {
             if(fwrite($archivo, date("d-m-Y").$accion."[".$Nombre.", ".$Apellidos.", ".$Usuario.", ".$Contrasenia.", ".$Email."] a las ".$hora." Desde la direccion ".$ip. "\r\n"))
             {

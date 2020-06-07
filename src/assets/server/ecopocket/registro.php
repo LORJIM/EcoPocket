@@ -30,9 +30,9 @@
 					if($conexion->query($insertar)){
 						$encriptar="UPDATE Acceso SET Contrasenia= md5(Contrasenia)";
 						$conexion->query($encriptar);
-						require "CaptarIP.php";
+						require "./actividad/CaptarIP.php";
 						$ip=get_client_ip();
-						require "LogRegistro.php";
+						require "./actividad/LogRegistro.php";
 						Registro($nombre,$apellidos,$user,$password,$email,$ip);
 						$mensaje="Se ha registrado correctamente";
 					}
