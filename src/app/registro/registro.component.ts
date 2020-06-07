@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import {Registro} from '../registro';
 import {RegistroService} from '../registro.service';
 
@@ -14,7 +13,7 @@ export class RegistroComponent implements OnInit {
 	usuario:string;
 	email:string;
 	contrasenia:string;
-  constructor(private router: Router, private reg: RegistroService) { }
+  constructor(private reg: RegistroService) { }
 
   ngOnInit(): void {
 	//utilizamos un disparador de jquery para que cuando seleccionemos uno de los campos se eliminen los mensajes de aviso
@@ -79,8 +78,7 @@ validacion(){
 	onRegistro(){
 		if(this.validacion()==true){ //el registro es correcto por parte front
 			this.datos=   {nombre:this.nombre, apellidos:this.apellidos, usuario: this.usuario, contrasenia: this.contrasenia, email: this.email};
-		//	this.reg.Registro(this.datos);
-			this.router.navigate(['/login']); //navega al login
+			this.reg.Registro(this.datos);
 		}
 		
 	}

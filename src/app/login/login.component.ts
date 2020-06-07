@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NavegacionService} from '../navegacion.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {RegistroService} from '../registro.service';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router,private nav: NavegacionService) { }
+	
+	mensaje:string;
+  constructor(private router: Router,private nav: NavegacionService,private snackBar: MatSnackBar, private reg:RegistroService) { }
 
   ngOnInit(): void {
+	//mensaje de resultado del registro, si viene, lo muestra en una popup
+	this.reg.mensajeActual.subscribe(mensaje => this.mensaje = mensaje);
+	if(this.mensaje!=null){
+		let snackBarRef = this.snackBar.open(this.mensaje,"",{duration: 3000});
+	}
+	
 	//utilizamos un disparador de jquery para que cuando seleccionemos uno de los campos se eliminen los mensajes de aviso
 	//como esto siempre debe estar alerta, lo pongo en el ngOnInit y utilizo el document ready de jquery
 	   (function ($) {
@@ -60,7 +70,7 @@ validacion(){
 		//muestra mensajes de aviso
 	    function showValidate(input) {
 	        var thisAlert = $(input).parent();
-	
+			
 	        $(thisAlert).addClass('alert-validate');
 	    }
 	   
