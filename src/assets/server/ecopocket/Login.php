@@ -11,31 +11,39 @@
 		$obj=json_decode($json,true);
 		$user=$obj['usuario'];
 		$Contrasenia=$obj['contrasenia'];
-		$encriptado= md5($Contrasenia);
 
 		require "conexion.php";
 
-		$login = "SELECT * FROM Acceso WHERE Usuario ='".$user."' AND Contrasenia ='".$encriptado."' ";
+		$login = "SELECT * FROM Acceso WHERE Usuario ='".$user."'";
 		$resultados = $conexion->query($login);
 		
 
-		if ($resultados-> num_rows > 0) { //si hay coincidencia, significa que los datos introducidos son correctos
+		if ($resultados-> num_rows > 0) { //si hay coincidencia, significa que el usuario existe
 
-
-			require "InsertarLogeos.php";
-			require "./actividad/CaptarIP.php";
-			$ip=get_client_ip();
-			require "./actividad/RegistroInicSesion.php";
-			$variable=1; //indicador de que el login se ha realizado correctamente
-			Registro($variable,$user,$ip);
-			$mensaje="Bienvenido";
+			$fila=$resultados-> fetch_assoc();
+			if(password_verify ( $Contrasenia , $fila["Contrasenia"] )){ //si devuelve true, los passwords coinciden, asi que el usuario se ha autenticado correctamente
+				require "InsertarLogeos.php";
+				require "./actividad/CaptarIP.php";
+				$ip=get_client_ip();
+				require "./actividad/RegistroInicSesion.php";
+				$variable=1; //indicador de que el login se ha realizado correctamente
+				Registro($variable,$user,$ip);
+				$mensaje="Bienvenido";
+			}else{
+				require "./actividad/CaptarIP.php";
+				$ip=get_client_ip();
+				require "./actividad/RegistroInicSesion.php";
+				$variable=0; //indicador de que el login NO se ha realizado correctamente porque el password no es correcto
+				Registro($variable,$user,$ip);
+				$mensaje="Usuario o Contraseña erróneos";
+			}
 		}
 		else
 		{
 			require "./actividad/CaptarIP.php";
 			$ip=get_client_ip();
 			require "./actividad/RegistroInicSesion.php";
-			$variable=0; //indicador de que el login NO se ha realizado correctamente
+			$variable=0; //indicador de que el login NO se ha realizado correctamente porque el usuario no existe
 			Registro($variable,$user,$ip);
 			$mensaje="Usuario o Contraseña erróneos";
 		}

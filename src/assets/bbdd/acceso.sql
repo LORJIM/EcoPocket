@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2020 a las 00:31:05
+-- Tiempo de generación: 14-06-2020 a las 01:44:49
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -33,9 +33,9 @@ CREATE TABLE `acceso` (
   `Nombre` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Apellidos` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Usuario` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `Contrasenia` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `Contrasenia` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Email` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
 
 --
@@ -56,7 +56,7 @@ ALTER TABLE `acceso`
 -- AUTO_INCREMENT de la tabla `acceso`
 --
 ALTER TABLE `acceso`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

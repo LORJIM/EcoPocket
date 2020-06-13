@@ -17,6 +17,8 @@ import * as $ from 'jquery';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegistroComponent } from './registro/registro.component';
 import { HomeComponent } from './home/home.component';
+import { MicuentaComponent } from './micuenta/micuenta.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     LoginComponent,
     RegistroComponent,
-    HomeComponent
+    HomeComponent,
+    MicuentaComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

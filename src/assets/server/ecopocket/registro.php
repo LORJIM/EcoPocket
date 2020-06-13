@@ -26,10 +26,9 @@
 				if ($resultado-> num_rows > 0){
 					$mensaje="Ya existe un usuario con ese nombre o correo";
 				}else{ //si no existe, procedemos con el insert
-					$insertar="INSERT INTO acceso( nombre, apellidos, usuario, contrasenia, email) VALUES ('$nombre', '$apellidos' ,'$user','$password','$email')";
+					$hash = password_hash($password, PASSWORD_DEFAULT); //encriptacion
+					$insertar="INSERT INTO acceso( nombre, apellidos, usuario, contrasenia, email) VALUES ('$nombre', '$apellidos' ,'$user','$hash','$email')";
 					if($conexion->query($insertar)){
-						$encriptar="UPDATE Acceso SET Contrasenia= md5(Contrasenia)";
-						$conexion->query($encriptar);
 						require "./actividad/CaptarIP.php";
 						$ip=get_client_ip();
 						require "./actividad/LogRegistro.php";

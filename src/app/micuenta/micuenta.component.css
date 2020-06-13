@@ -1,0 +1,51 @@
+/*FONDO DE LA PAGINA*/
+body {
+	font-family: sans-serif;
+	  width: 100%;
+	  min-height: 100vh;
+	  background: #018381;
+	  background: -webkit-linear-gradient(45deg, #1a1a1a, #018381);
+	  background: -o-linear-gradient(45deg, #1a1a1a,#018381);
+	  background: -moz-linear-gradient(45deg, #1a1a1a, #018381);
+	  background: linear-gradient(45deg, #1a1a1a, #018381);
+	  display: -webkit-box;
+	  display: -webkit-flex;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: flex;
+	  flex-wrap: wrap;
+}
+.panel{ /*estos heights son necesarios para que el panel solo ocupe el espacio imprescindible*/
+	height: 13%;
+}
+.limiter{
+	height: 79%;
+}
+.cuenta-title {
+  font-family: Arial Black;
+  font-size: 30px;
+  color: #73ebbd;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 25px;
+
+  display: block;
+  margin-left: 50px;
+  width: 600px;
+  background-color: #1B1E23;
+  padding-top: 50px;
+  padding-bottom: 39px;
+}
+.cuenta-datos {
+  font-family: JosefinSans-Bold;
+  font-size: 20px;
+  color: #73ebbd;
+  line-height: 1.2;
+  border-radius: 25px;
+
+  display: block;
+  margin-left: 50px;
+  width: 600px;
+  padding-top: 50px;
+  padding-bottom: 39px;
+}

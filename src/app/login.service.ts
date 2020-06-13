@@ -23,6 +23,7 @@ export class LoginService {
 			this.mensajeActual.subscribe(mensaje => this.mensaje = mensaje);
 			let snackBarRef = this.snackBar.open(this.mensaje,"",{duration: 3000});
 			if(this.mensaje=='Bienvenido'){ //si el php devuelve este mensaje, significa que el login ha sido un exito
+				localStorage.setItem("usuario", datos.usuario); //guardamos el usuario que ha iniciado sesion
 				this.nav.data='S'; //indicador de que el log ha sido un exito, de que el usuario esta logeado
 				this.router.navigate(['']); //navega a la pagina principal
 			}
