@@ -13,8 +13,26 @@ export class NavegacionComponent implements OnInit {
 
   ngOnInit(): void {
 	this.nav.data='S'; //indicador de que el usuario esta logeado
+	if(this.nav.categoria!=undefined){ //si se encuentra en una categoria, muestra las funcionalidades
+		(function ($) {
+		 $('.funcion').show();
+		})(jQuery);
+	}else{ //si no, las oculta
+		(function ($) {
+		 $('.funcion').hide();
+		})(jQuery);
+	}
   }
 	//el sentido de este servicio reside en que se asegura que el usuario esta logeado, y esta accediendo desde la pagina principal
+	onMiCartera(){
+		this.router.navigate(['/mi-cartera']); //navega a Mi Cartera
+	}
+	onOperaciones(){
+		this.router.navigate(['/operaciones']); //navega a Operaciones
+	}
+	onTrayectoria(){
+		this.router.navigate(['/trayectoria']); //navega a Trayectoria
+	}
 	onMiCuenta(){
 		this.router.navigate(['/mi-cuenta']); //navega a Mi Cuenta
 	}
@@ -22,18 +40,23 @@ export class NavegacionComponent implements OnInit {
 		this.router.navigate(['/contacto']); //navega a Contacto
 	}
 	onFondos(){
+		this.nav.categoria='I';
 		this.router.navigate(['/fondos']); //navega a Fondos de Inversion
 	}
 	onForex(){
+		this.nav.categoria='F';
 		this.router.navigate(['/forex']); //navega a Forex
 	}
 	onCripto(){
+		this.nav.categoria='C';
 		this.router.navigate(['/cripto']); //navega a Criptomonedas
 	}
 	onApuestas(){
+		this.nav.categoria='A';
 		this.router.navigate(['/apuestas']); //navega a Apuestas Deportivas
 	}
 	onHogar(){
+		this.nav.categoria='H';
 		this.router.navigate(['/hogar']); //navega a Gestion del Hogar
 	}
 }

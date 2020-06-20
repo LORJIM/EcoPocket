@@ -14,11 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import * as $ from 'jquery';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RegistroComponent } from './registro/registro.component';
 import { HomeComponent } from './home/home.component';
 import { MicuentaComponent } from './micuenta/micuenta.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { CarteraComponent } from './cartera/cartera.component';
+import { ModalaltaComponent } from './modalalta/modalalta.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { ContactoComponent } from './contacto/contacto.component';
     RegistroComponent,
     HomeComponent,
     MicuentaComponent,
-    ContactoComponent
+    ContactoComponent,
+    CarteraComponent,
+    ModalaltaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+	MatDialogModule,
 	MatSnackBarModule,
     AppRoutingModule,
     FontAwesomeModule,
