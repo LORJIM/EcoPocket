@@ -15,21 +15,7 @@ body {
 	  display: flex;
 	  flex-wrap: wrap;
 }
-/*VENTANAS MODALES*/
-/*FONDO DE LA PAGINA*/
-#cuerpo{
-	  background: #018381;
-	  height:100%;
-}
-/*FONDO DE CABECERA*/
-#cabecera{
-  background: #1B1E23;
-}
-/*EVITAR MARGENES DEL DIALOG y EVITAR SCROLLBAR*/
-::ng-deep.mat-dialog-container {
-	padding: 0px !important;
-	overflow: hidden;
-}
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 

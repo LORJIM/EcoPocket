@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import {NavegacionService} from './navegacion.service';
 import {RegistroService} from './registro.service';
 import {LoginService} from './login.service';
@@ -39,6 +39,7 @@ import { ModalaltaComponent } from './modalalta/modalalta.component';
   ],
   imports: [
     BrowserModule,
+	ReactiveFormsModule,
     FormsModule,
 	MatDialogModule,
 	MatSnackBarModule,

@@ -1,0 +1,59 @@
+/*VENTANAS MODALES*/
+/*FONDO DE LA PAGINA y los margins hacen el marco, cogiendo el background de body*/
+#cuerpo{
+	  background: #018381;
+	  height:85%; 
+	  margin-left: 20px;
+	  margin-top: 20px;
+	  margin-bottom: 20px;
+	  margin-right: 20px;
+}
+
+#cabecera{
+  color: #73ebbd;
+  line-height: 1.2;
+  text-align:center;
+}
+/*FONDO DE CABECERA*/
+body{
+	background: #d6eaf8 url(/assets/imagenes/fondomodal.jpg) repeat;
+}
+.form-group{
+    margin-left: 10px;
+    width: 70%;
+}
+.botonera{
+    margin-left: 240px;
+    width: 70%;
+}
+/*EVITAR MARGENES DEL DIALOG y EVITAR SCROLLBAR*/
+::ng-deep.mat-dialog-container {
+	padding: 0px !important;
+	overflow: hidden;
+}
+/*quitar flechas o triggers del input number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/*------------------------------------------------------------------
+[ validacion front ]*/
+
+.error{
+	display: none;
+	margin-left: 10px;
+}		
+
+.error_show{
+	color: red;
+	margin-left: 10px;
+}
+input.invalid, textarea.invalid{
+	border: 2px solid red;
+}
+
+input.valid, textarea.valid{
+	border: 2px solid green;
+}

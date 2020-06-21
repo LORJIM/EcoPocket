@@ -14,8 +14,9 @@ export class CarteraComponent implements OnInit {
 
 	private _url:string="http://127.0.0.1/ecopocket/cartera/seleccionar.php";
  dataSource:any;
+ totalSource:any;
 total:number;
-mensaje:string;
+mensaje:any;
 tipoSeleccionado:any='Todo'; //valores por defecto
 intervaloSeleccionado:any='1 d\u00EDa'; //valores por defecto
 
@@ -25,12 +26,31 @@ intervaloSeleccionado:any='1 d\u00EDa'; //valores por defecto
 	if(this.nav.data==undefined){ //si no se ha logeado un usuario, se redirige al login
 		this.router.navigate(['/login']);
 	}else{
+		this.obtenerTotal(); //calcular balance total
 		this.consulta(); //consulta previa o refresco de datos
 	}
   }
-	consulta(){
+	obtenerTotal(){
 		//reiniciamos los datos de salida
 		this.total=0; 
+		this.totalSource = null;
+		var datos={usuario: localStorage.getItem("usuario"),tipo: "Todo",intervalo: "Todo"}; //sin filtros
+		this.http.post(this._url,datos).subscribe(data=>{ 
+			if(data!="Sin resultados"){ //si el usuario tiene movimientos
+				this.totalSource = data;
+				//este for calcula el balance total
+				for (var i = 0; i < this.totalSource.length; i++) {
+					if (this.totalSource[i].Tipo=='Retiro'){ //solo sumamos los retiros
+						this.total+=parseFloat(this.totalSource[i].Importe);
+					}else if (this.totalSource[i].Tipo=='Depósito'){ //y restamos los depositos
+						this.total-=parseFloat(this.totalSource[i].Importe);
+					}
+				}
+			}
+		});
+	}
+	consulta(){
+		//reiniciamos los datos de salida
 		this.dataSource = null;
 		this.mensaje='';
 		//mandamos los datos y filtros para consultar automaticamente
@@ -40,28 +60,27 @@ intervaloSeleccionado:any='1 d\u00EDa'; //valores por defecto
 				this.mensaje=data;
 			}else{
 				this.dataSource = data;
-				//este for suma importes al balance total
-				for (var i = 0; i < this.dataSource.length; i++) {
-					if (this.dataSource[i].Tipo=='Retiro'){ //solo sumamos los retiros
-						this.total+=parseFloat(this.dataSource[i].Importe);
-					}
-				}
 			}
 		});
 	}
 	onFiltroTipo(event: any){
 		this.tipoSeleccionado=event.target.value;
-		this.consulta(); //refrescar
+		this.consulta(); //refrescar solo la consulta
 	}
 	onFiltroIntervalo(event: any){
 		this.intervaloSeleccionado=event.target.value;
-		this.consulta(); //refrescar
+		this.consulta(); //refrescar solo la consulta
 	}
 	onAlta(){
 		const dialogRef = this.dialog.open(ModalaltaComponent, {
       		width: '500px',
-			height: '500px',
+			height: '650px',
     	});
+		dialogRef.afterClosed().subscribe(() => { 
+			//cuando se cierre la modal de alta tambien refrescamos
+			this.obtenerTotal();
+			this.consulta(); 
+		} ); 
 	}
 	
 	onBaja(){

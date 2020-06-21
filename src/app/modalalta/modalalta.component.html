@@ -1,16 +1,37 @@
-<div id="cabecera">
-<h1>Hi</h1>
-</div>
-
-<div id="cuerpo">
-<div class="wrap-input100 validate-input m-b-10" data-validate = "Usuario requerido">
-						<input class="input100" type="text" name="username" placeholder="Usuario">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-user"></i>
-						</span>
-					</div>
-  <button (click)="onCancelar()">Cancelar</button>
-  <button>Aceptar</button>
-</div>
-
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div id="cabecera">
+			<h1>Añadir Movimiento</h1>
+		</div>
+		<form id="cuerpo" [formGroup]="form">
+			<div class="form-group">
+			    <label for="form_tipo">Tipo de Movimiento</label>
+				<select class="form-control" id="form_tipo" formControlName="tipo">
+					<option value="" [selected]="true == true" disabled class="text-hide">Introduzca tipo de movimiento...</option>
+					<option value="Depósito">Depósito</option>
+					<option value="Retiro">Retiro</option>
+				</select><span class="error">Campo requerido</span>
+			</div>
+			<div class="form-group">
+			    <label for="form_importe">Importe</label>
+			    <input type="number" class="form-control" id="form_importe" formControlName="importe" value="{{importe}}" placeholder="Introduzca importe"><span class="error">Campo requerido</span>
+			</div>
+			<div class="form-group">
+				<label for="form_plataforma">Plataforma</label>
+				<input type="text" class="form-control" id="form_plataforma" formControlName="plataforma" value="{{plataforma}}" placeholder="Introduzca plataforma"><span class="error">Campo requerido</span>
+			</div>
+			<div class="form-group">
+			    <label for="form_fecha">Fecha</label>
+			    <input type="date" class="form-control" id="form_fecha" placeholder="Introduzca fecha" formControlName="fecha" value="{{fecha}}"><span class="error">Campo requerido</span>
+			</div><br>
+			<div class="botonera">
+			  <button type="button" class="btn btn-light" (click)="onCancelar()">Cancelar</button>&nbsp;&nbsp;
+			  <button type="button" class="btn btn-dark" (click)="onAceptar()">Aceptar</button>
+			</div>
+			</form>
+	</body>
+</html>
