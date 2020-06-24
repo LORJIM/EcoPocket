@@ -30,9 +30,9 @@
 		        	<span *ngFor="let dato of dataSource">
 				        <h4 class="text-danger">{{dato.Tipo}}<span class="fecha text-dark">Fecha: {{dato.Fecha}}</span></h4>
 				        <p>Importe: {{dato.Importe}} EUR</p>
-				        <button class="btn btn-secondary mb-5" role="button">{{dato.Plataforma}}</button>
-				        <a class="btn icon-btn btn-danger" type="button" name="baja" (click)="onBaja()">
-							<i class="fa fa-close"></i> Eliminar
+				        <button class="btn btn-secondary mb-5" role="button">{{dato.Plataforma}}</button><br>
+				        <a class="btn icon-btn btn-danger" type="button" name="baja" (click)="onBaja($event)">
+							<i class="fa fa-close"></i> Eliminar<i style="display:none" id="id">{{dato.ID}}</i>
 						</a>
 				        <hr>
 			        </span>

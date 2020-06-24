@@ -22,6 +22,7 @@ import { MicuentaComponent } from './micuenta/micuenta.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { CarteraComponent } from './cartera/cartera.component';
 import { ModalaltaComponent } from './modalalta/modalalta.component';
+import { ModalbajaComponent } from './modalbaja/modalbaja.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ModalaltaComponent } from './modalalta/modalalta.component';
     MicuentaComponent,
     ContactoComponent,
     CarteraComponent,
-    ModalaltaComponent
+    ModalaltaComponent,
+    ModalbajaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+/*VENTANAS MODALES*/
+/*FONDO DE LA PAGINA y los margins hacen el marco, cogiendo el background de body*/
+#cuerpo{
+	  background: #018381;
+	  margin-left: 20px;
+	  margin-bottom: 20px;
+	  margin-right: 20px;
+      height: 90%;
+	  width: 95%; 
+	  text-align: center;
+	  display: inline-block;
+}
+/*FONDO DE CABECERA*/
+body{
+    padding-top: 30px;
+	background: url(/assets/imagenes/fondomodal.jpg) repeat;
+}
+/*EVITAR MARGENES DEL DIALOG y EVITAR SCROLLBAR*/
+::ng-deep.mat-dialog-container {
+	padding: 0px !important;
+	overflow: hidden;
+}

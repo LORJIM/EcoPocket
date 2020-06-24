@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { ModalaltaComponent } from '../modalalta/modalalta.component';
+import { ModalbajaComponent } from '../modalbaja/modalbaja.component';
 
 @Component({
   selector: 'app-cartera',
@@ -83,7 +84,20 @@ intervaloSeleccionado:any='1 d\u00EDa'; //valores por defecto
 		} ); 
 	}
 	
-	onBaja(){
-		
+	onBaja(event: any){
+		var ID=event.target.children.id.innerHTML; //el boton eliminar en concreto que estamos haciendo click, contiene un elemento hidden donde tenemos almacenada la ID
+		const dialogRef = this.dialog.open(ModalbajaComponent, { //abrimos la ventana de confirmacion
+			data:{ //este data sera el JSON que contenga la ID
+				ID:ID //le pasamos la id en el matdialogdata
+			},
+      		width: '800px',
+			height: '200px',
+    	});
+		dialogRef.afterClosed().subscribe(resultado => { 
+			if(resultado==1){ //si devuelve un 1 significa que ha aceptado la eliminacion, por lo que refrescamos
+				this.obtenerTotal();
+				this.consulta(); 
+			}
+		} ); 
 	}
 }
