@@ -23,6 +23,16 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { CarteraComponent } from './cartera/cartera.component';
 import { ModalaltaComponent } from './modalalta/modalalta.component';
 import { ModalbajaComponent } from './modalbaja/modalbaja.component';
+import { OperacionesfondosComponent } from './operacionesfondos/operacionesfondos.component';
+import { OperacionesforexComponent } from './operacionesforex/operacionesforex.component';
+import { OperacioneshogarComponent } from './operacioneshogar/operacioneshogar.component';
+import { OperacionescriptoComponent } from './operacionescripto/operacionescripto.component';
+import { OperacionesapuestasComponent } from './operacionesapuestas/operacionesapuestas.component';
+import { ModalaltaforexComponent } from './modalaltaforex/modalaltaforex.component';
+import { ModalaltafondosComponent } from './modalaltafondos/modalaltafondos.component';
+import { ModalaltacriptoComponent } from './modalaltacripto/modalaltacripto.component';
+import { ModalaltahogarComponent } from './modalaltahogar/modalaltahogar.component';
+import { ModalaltaapuestasComponent } from './modalaltaapuestas/modalaltaapuestas.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +47,17 @@ import { ModalbajaComponent } from './modalbaja/modalbaja.component';
     ContactoComponent,
     CarteraComponent,
     ModalaltaComponent,
-    ModalbajaComponent
+    ModalbajaComponent,
+    OperacionesfondosComponent,
+    OperacionesforexComponent,
+    OperacioneshogarComponent,
+    OperacionescriptoComponent,
+    OperacionesapuestasComponent,
+    ModalaltaforexComponent,
+    ModalaltafondosComponent,
+    ModalaltacriptoComponent,
+    ModalaltahogarComponent,
+    ModalaltaapuestasComponent
   ],
   imports: [
     BrowserModule,

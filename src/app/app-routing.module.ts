@@ -6,6 +6,11 @@ import { MicuentaComponent } from './micuenta/micuenta.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { RegistroComponent } from './registro/registro.component';
 import { CarteraComponent } from './cartera/cartera.component';
+import { OperacionesfondosComponent } from './operacionesfondos/operacionesfondos.component';
+import { OperacionesforexComponent } from './operacionesforex/operacionesforex.component';
+import { OperacioneshogarComponent } from './operacioneshogar/operacioneshogar.component';
+import { OperacionescriptoComponent } from './operacionescripto/operacionescripto.component';
+import { OperacionesapuestasComponent } from './operacionesapuestas/operacionesapuestas.component';
 
 
 const routes: Routes = [
@@ -21,6 +26,11 @@ const routes: Routes = [
     { path: 'mi-cuenta', component: MicuentaComponent },
     { path: 'contacto', component: ContactoComponent },
     { path: 'mi-cartera', component: CarteraComponent },
+    { path: 'operacionesfondos', component: OperacionesfondosComponent },
+    { path: 'operacionesforex', component: OperacionesforexComponent },
+    { path: 'operacionescripto', component: OperacionescriptoComponent },
+    { path: 'operacionesapuestas', component: OperacionesapuestasComponent },
+    { path: 'operacioneshogar', component: OperacioneshogarComponent },
 
     // cualquier otra ruta redirige a la pagina principal
     { path: '**', redirectTo: '' }];

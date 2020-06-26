@@ -28,7 +28,29 @@ export class NavegacionComponent implements OnInit {
 		this.router.navigate(['/mi-cartera']); //navega a Mi Cartera
 	}
 	onOperaciones(){
-		this.router.navigate(['/operaciones']); //navega a Operaciones
+		var categoria=this.nav.categoria;
+		switch (categoria){
+			case 'I':{
+				this.router.navigate(['/operacionesfondos']); //navega a Operaciones de Fondos de Inversion
+				break;
+			}
+			case 'F':{
+				this.router.navigate(['/operacionesforex']); //navega a Operaciones de Forex
+				break;
+			}
+			case 'C':{
+				this.router.navigate(['/operacionescripto']); //navega a Operaciones de Criptomonedas
+				break;
+			}
+			case 'A':{
+				this.router.navigate(['/operacionesapuestas']); //navega a Operaciones de Apuestas Deportivas
+				break;
+			}
+			case 'H':{
+				this.router.navigate(['/operacioneshogar']); //navega a Operaciones de Gestion del Hogar
+				break;
+			}
+		}
 	}
 	onTrayectoria(){
 		this.router.navigate(['/trayectoria']); //navega a Trayectoria
