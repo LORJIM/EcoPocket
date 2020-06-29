@@ -1,3 +1,13 @@
+
+html, body { /*web responsive*/
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+}
+body{
+}
 /*este width ocupa todo el espacio de la pantalla para el componente*/
 :host { 
 	width: 100%;

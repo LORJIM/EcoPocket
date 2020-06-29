@@ -13,7 +13,7 @@ import { ModalbajaComponent } from '../modalbaja/modalbaja.component';
 })
 export class CarteraComponent implements OnInit {
 
-	private _url:string="http://127.0.0.1/ecopocket/cartera/seleccionar.php";
+	private _url:string=localStorage.getItem("host")+"ecopocket/cartera/seleccionar.php";
  dataSource:any;
  totalSource:any;
 total:number;

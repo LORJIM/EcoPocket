@@ -1,0 +1,1 @@
+en estos logs se almacena la mayoria de la actividad de los usuarios que utilicen ecopocket

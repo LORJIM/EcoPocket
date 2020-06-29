@@ -10,7 +10,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./modalalta.component.css']
 })
 export class ModalaltaComponent implements OnInit {
-	private _url:string="http://127.0.0.1/ecopocket/cartera/insertar.php";
+	private _url:string=localStorage.getItem("host")+"ecopocket/cartera/insertar.php";
 	form: FormGroup;
 	tipo:any;
 	importe:any;

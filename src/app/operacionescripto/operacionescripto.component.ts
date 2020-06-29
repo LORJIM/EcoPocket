@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-operacionescripto',
   templateUrl: './operacionescripto.component.html',
-  styleUrls: ['../operacionesfondos/operacionesfondos.component.css']
+  styleUrls: ['../cartera/cartera.component.css']
 })
 export class OperacionescriptoComponent implements OnInit {
 

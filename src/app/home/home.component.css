@@ -1,4 +1,11 @@
 /*FONDO DE LA PAGINA*/
+html, body { /*web responsive*/
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+}
 body {
 	font-family: sans-serif;
 	  width: 100%;

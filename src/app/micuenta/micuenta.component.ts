@@ -11,7 +11,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./micuenta.component.css']
 })
 export class MicuentaComponent implements OnInit {
-	private _url:string="http://127.0.0.1/ecopocket/micuenta.php";
+	private _url:string=localStorage.getItem("host")+"ecopocket/micuenta.php";
 	private dataSource = new BehaviorSubject(null);
   dataActual = this.dataSource.asObservable();
 	usuario:string;

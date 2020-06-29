@@ -9,7 +9,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./modalbaja.component.css']
 })
 export class ModalbajaComponent implements OnInit {
-	private _url:string="http://127.0.0.1/ecopocket/cartera/eliminar.php";
+	private _url:string=localStorage.getItem("host")+"ecopocket/cartera/eliminar.php";
 	mensaje:any;
   constructor(private snackBar: MatSnackBar,private http:HttpClient,public dialogRef: MatDialogRef<ModalbajaComponent>,
  	@Inject(MAT_DIALOG_DATA) public datosMiCartera: any) { //datosMiCartera es la id que le hemos pasado metida en un JSON

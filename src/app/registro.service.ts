@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class RegistroService {
-	private _url:string="http://127.0.0.1/ecopocket/registro.php";
+	private _url:string=localStorage.getItem("host")+"ecopocket/registro.php";
 	private mensajeSource = new BehaviorSubject(null);
   	mensajeActual = this.mensajeSource.asObservable();
 	mensaje:string;

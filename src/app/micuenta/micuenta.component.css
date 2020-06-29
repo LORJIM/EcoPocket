@@ -1,6 +1,33 @@
 /*FONDO DE LA PAGINA*/
+html, body { /*web responsive*/
+  position: relative;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+@media screen and (min-width: 1030px)   and (max-width: 1366px) { /*portatiles*/
+  .cuenta-title{
+    font-size:25px;
+    width:400px;
+    margin-top:40px;
+    padding-top:30px;
+    padding-bottom:19px;
+  }
+}
+@media screen and (min-width: 1370px)  and (max-width: 2000px)  { /*escritorio*/
+.cuenta-title{
+  font-size: 30px;
+  width: 600px;
+  padding-top: 50px;
+  padding-bottom: 39px;
+  }
+}
 body {
 	font-family: sans-serif;
+  	overflow: auto; /*web responsive*/
 	  width: 100%;
 	  min-height: 100vh;
 	  background: #018381;
@@ -23,7 +50,6 @@ body {
 }
 .cuenta-title {
   font-family: Arial Black;
-  font-size: 30px;
   color: #73ebbd;
   line-height: 1.2;
   text-align: center;
@@ -31,10 +57,7 @@ body {
 
   display: block;
   margin-left: 50px;
-  width: 600px;
   background-color: #1B1E23;
-  padding-top: 50px;
-  padding-bottom: 39px;
 }
 .cuenta-datos {
   font-family: JosefinSans-Bold;

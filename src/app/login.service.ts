@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-	private _url:string="http://127.0.0.1/ecopocket/Login.php";
+	private _url:string=localStorage.getItem("host")+"ecopocket/Login.php";
 	private mensajeSource = new BehaviorSubject(null);
   	mensajeActual = this.mensajeSource.asObservable();
 	mensaje:string;

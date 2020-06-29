@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2020 a las 00:43:09
+-- Tiempo de generación: 28-06-2020 a las 22:32:47
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `profitforex` (
   `Fecha` date NOT NULL,
-  `ProfitForex` double NOT NULL
+  `Usuario` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `Profit` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
