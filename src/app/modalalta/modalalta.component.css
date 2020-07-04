@@ -57,3 +57,12 @@ input.invalid, textarea.invalid{
 input.valid, textarea.valid{
 	border: 2px solid green;
 }
+/*OPERACIONES*/
+.columna1, .columna2{
+	position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 50.00%;
+    max-width: 50.00%;
+}

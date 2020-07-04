@@ -31,8 +31,8 @@ export class ModalaltafondosComponent implements OnInit {
                 fecha: [this.fecha, Validators.required],
                 rentabilidad: [this.rentabilidad, Validators.required],
                 dividendo: [this.dividendo, Validators.required],
-                porcdividendo: [this.porcdividendo, Validators.required],
-                empresa: [this.empresa, Validators.required],
+                porcdividendo: [this.porcdividendo],
+                empresa: [this.empresa],
                 detalles: [this.detalles]
             });
          }
@@ -55,6 +55,29 @@ export class ModalaltafondosComponent implements OnInit {
 	this.fechaActual=anio+"-"+mm+"-"+dd;//establecemos la fecha maxima (hoy) para el input fecha, evitando que metan operaciones que aun no se han realizado
   }
 
+	
+	onChangeTipo(event: any){
+		if(event.target.value=="Bienes Inmobiliarios" || event.target.value=="Bonos del Estado"){ //el campo empresa solo estara habilitado cuando el tipo sea acciones o fondos
+			$('#form_empresa').val(''); //limpiar el campo antes de deshabilitarlo
+			$('#form_empresa').prop("disabled", true);
+			this.form.get('empresa').setValue(null); //esto hay que hacerlo para limpiar el campo del reactive form de angular
+		}else{
+			$('#form_empresa').prop("disabled", false);
+		}
+	}
+	onChangeDividendo(event: any){
+		if(event.target.value=="No"){ //el campo porcentaje de dividendo solo estara habilitado y sera obligatorio cuando haya un tipo de dividendo
+			$('#form_porcdividendo').val(''); //limpiar el campo antes de deshabilitarlo
+			$('#form_porcdividendo').prop("disabled", true);
+			this.form.get('porcdividendo').clearValidators();
+			this.form.get('porcdividendo').setValue(null); //esto hay que hacerlo para limpiar el campo del reactive form de angular
+		}else{
+			$('#form_porcdividendo').prop("disabled", false);
+			this.form.get('porcdividendo').setValidators([Validators.required]);
+		}
+		this.form.get('porcdividendo').updateValueAndValidity();
+	}
+	
   onAceptar(){
 		const {value, valid} = this.form;
 	    if(valid){ //si el formulario es valido, es decir, todos los values estan rellenos
@@ -68,17 +91,17 @@ export class ModalaltafondosComponent implements OnInit {
           }
         });
 	    }else{ //si hay algun input null -> sin rellenar
-        for (var input in value){ //value contiene todos los inputs del formgroup
-          var element=$("#form_"+input); //el elemento del html
-          var error_element=$("span", element.parent());
-          if(value[input]==null){ //si el value es null, activamos un aviso en su elemento html
-            element.removeClass("valid").addClass("invalid");
-            error_element.removeClass("error").addClass("error_show");
-          }else{ //si el value no es null, bordeamos con verde su elemento html
-            element.removeClass("invalid").addClass("valid");
-            error_element.removeClass("error_show").addClass("error");
-          }
-        }
+	        for (var input in value){ //value contiene todos los inputs del formgroup
+	          var element=$("#form_"+input); //el elemento del html
+	          var error_element=$("span", element.parent());
+	          if(this.form.controls[input].status!='VALID'){ //si el estado del input no es valido (cuando sea obligatorio y no este relleno), activamos un aviso en su elemento html
+	            element.removeClass("valid").addClass("invalid");
+	            error_element.removeClass("error").addClass("error_show");
+	          }else{ //si el value no es null, bordeamos con verde su elemento html
+	            element.removeClass("invalid").addClass("valid");
+	            error_element.removeClass("error_show").addClass("error");
+	          }
+	        }
 		}
 	}
 

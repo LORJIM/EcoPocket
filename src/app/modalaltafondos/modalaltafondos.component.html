@@ -9,33 +9,62 @@
 			<h1>Añadir Operación</h1>
 		</div>
 		<form id="cuerpo" [formGroup]="form">
-			<div class="form-group">
-			    <label for="form_tipo">Tipo de Operación</label>
-				<select class="form-control" id="form_tipo" formControlName="tipo">
-					<option value="" [selected]="true == true" disabled class="text-hide">Introduzca tipo de operación...</option>
-					<option value="Bonos del Estado">Bonos del Estado</option>
-					<option value="Bienes Inmobiliarios">Bienes Inmobiliarios</option>
-					<option value="Acciones">Acciones</option>
-					<option value="Fondos Mixtos">Fondos Mixtos</option>
-					<option value="Fondos Indexados">Fondos Indexados</option>
-				</select><span class="error">Campo requerido</span>
+			<div class="row">
+				<div class="columna1">
+					<div class="form-group">
+					    <label for="form_tipo">Tipo de Operación</label>
+						<select class="form-control" id="form_tipo" formControlName="tipo" (change)="onChangeTipo($event)">
+							<option value="" [selected]="true == true" disabled class="text-hide">Introduzca tipo de operación...</option>
+							<option value="Bonos del Estado">Bonos del Estado</option>
+							<option value="Bienes Inmobiliarios">Bienes Inmobiliarios</option>
+							<option value="Acciones">Acciones</option>
+							<option value="Fondos Mixtos">Fondos Mixtos</option>
+							<option value="Fondos Indexados">Fondos Indexados</option>
+						</select><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_cantidad">Cantidad Invertida</label>
+					    <input type="number" class="form-control" id="form_cantidad" formControlName="cantidad" value="{{cantidad}}" placeholder="Introduzca cantidad"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+						<label for="form_empresa">Empresa</label>
+						<input type="text" class="form-control" id="form_empresa" formControlName="empresa" value="{{empresa}}" placeholder="Introduzca empresa">
+					</div>
+					<div class="form-group">
+					    <label for="form_fecha">Fecha</label> <!-- este onkeydown impide que el usuario meta la fecha a mano -->
+					    <input type="date" onkeydown="return false" max='{{fechaActual}}' class="form-control" id="form_fecha" placeholder="Introduzca fecha" formControlName="fecha" value="{{fecha}}"><span class="error">Campo requerido</span>
+					</div>
+				</div>
+				<div class="columna2">
+					<div class="form-group">
+					    <label for="form_rentabilidad">Rentabilidad (%)</label>
+					    <input type="number" class="form-control" id="form_rentabilidad" formControlName="rentabilidad" value="{{rentabilidad}}" placeholder="Introduzca rentabilidad"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_dividendo">Dividendo</label>
+						<select class="form-control" id="form_dividendo" formControlName="dividendo" (change)="onChangeDividendo($event)">
+							<option value="" [selected]="true == true" disabled class="text-hide">Introduzca dividendo...</option>
+							<option value="No">No</option>
+							<option value="Mensual">Mensual</option>
+							<option value="Trimestral">Trimestral</option>
+							<option value="Semestral">Semestral</option>
+							<option value="Anual">Anual</option>
+						</select><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+						<label for="form_porcdividendo">Porcentaje del Dividendo (%)</label>
+						<input type="number" class="form-control" id="form_porcdividendo" formControlName="porcdividendo" value="{{porcdividendo}}" placeholder="Introduzca porcentaje de dividendo"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_detalles">Detalles Adicionales</label> <!-- el resize del textarea impide que el usuario pueda redimensionarlo con el raton, porque estropearia la ventana modal -->
+					    <textarea style="resize: none;" maxlength="50" class="form-control" id="form_detalles" placeholder="Otros detalles" formControlName="detalles" value="{{detalles}}"></textarea>
+					</div><br>
+					<div class="botonera">
+					  <button type="button" class="btn btn-light" (click)="onCancelar()">Cancelar</button>&nbsp;&nbsp;
+					  <button type="button" class="btn btn-dark" (click)="onAceptar()">Aceptar</button>
+					</div>
+				</div>
 			</div>
-			<div class="form-group">
-			    <label for="form_cantidad">Cantidad Invertida</label>
-			    <input type="number" class="form-control" id="form_cantidad" formControlName="cantidad" value="{{cantidad}}" placeholder="Introduzca cantidad"><span class="error">Campo requerido</span>
-			</div>
-			<div class="form-group">
-				<label for="form_empresa">Empresa</label>
-				<input type="text" class="form-control" id="form_empresa" formControlName="empresa" value="{{empresa}}" placeholder="Introduzca empresa"><span class="error">Campo requerido</span>
-			</div>
-			<div class="form-group">
-			    <label for="form_fecha">Fecha</label>
-			    <input type="date" max='{{fechaActual}}' class="form-control" id="form_fecha" placeholder="Introduzca fecha" formControlName="fecha" value="{{fecha}}"><span class="error">Campo requerido</span>
-			</div><br>
-			<div class="botonera">
-			  <button type="button" class="btn btn-light" (click)="onCancelar()">Cancelar</button>&nbsp;&nbsp;
-			  <button type="button" class="btn btn-dark" (click)="onAceptar()">Aceptar</button>
-			</div>
-			</form>
+		</form>
 	</body>
 </html>

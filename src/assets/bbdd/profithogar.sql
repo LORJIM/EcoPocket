@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2020 a las 22:32:44
+-- Tiempo de generación: 04-07-2020 a las 20:03:24
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -33,16 +33,6 @@ CREATE TABLE `profithogar` (
   `Usuario` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Profit` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `profithogar`
---
-ALTER TABLE `profithogar`
-  ADD PRIMARY KEY (`Fecha`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
