@@ -26,8 +26,8 @@
 				<input type="text" class="form-control" id="form_plataforma" formControlName="plataforma" value="{{plataforma}}" placeholder="Introduzca plataforma"><span class="error">Campo requerido</span>
 			</div>
 			<div class="form-group">
-			    <label for="form_fecha">Fecha</label>
-			    <input type="date" class="form-control" id="form_fecha" placeholder="Introduzca fecha" formControlName="fecha" value="{{fecha}}"><span class="error">Campo requerido</span>
+			    <label for="form_fecha">Fecha</label> <!-- este onkeydown impide que el usuario meta la fecha a mano -->
+			    <input type="date" onkeydown="return false" max='{{fechaActual}}' class="form-control" id="form_fecha" placeholder="Introduzca fecha" formControlName="fecha" value="{{fecha}}"><span class="error">Campo requerido</span>
 			</div><br>
 			<div class="botonera">
 			  <button type="button" class="btn btn-light" (click)="onCancelar()">Cancelar</button>&nbsp;&nbsp;

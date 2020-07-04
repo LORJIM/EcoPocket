@@ -21,7 +21,7 @@
 				require "../actividad/CaptarIP.php";
 				$ip=get_client_ip();
 				require "../actividad/RegistroEliminar.php";
-				Registro($ID,$ip);
+				Registro($ID,$ip,'C'); //esto indica que se trata de un movimiento
 			}
 			else{
 				$mensaje="Ha ocurrido un error inesperado";

@@ -1,6 +1,10 @@
 <?php
-	function Registro($ID,$ip){
-        $accion=" Se ha eliminado de la base de datos el movimiento con ID: ";
+	function Registro($ID,$ip,$tipo){
+		if($tipo=='O'){ //se trata de una operacion
+			$accion=" Se ha eliminado de la base de datos la operación con ID: ";
+		}else{ //se trata de un movimiento de cartera
+			$accion=" Se ha eliminado de la base de datos el movimiento con ID: ";
+		}
         $hora=date("G:i:s");
         $date=date("d-m-Y");
         $FileName=$date.".log";

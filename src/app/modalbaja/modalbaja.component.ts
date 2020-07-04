@@ -15,13 +15,18 @@ export class ModalbajaComponent implements OnInit {
 	private _url4:string=localStorage.getItem("host")+"ecopocket/cripto/eliminar.php";
 	private _url5:string=localStorage.getItem("host")+"ecopocket/apuestas/eliminar.php";
 	private _url6:string=localStorage.getItem("host")+"ecopocket/hogar/eliminar.php";
+	confirmacion:string;
 	mensaje:any;
   constructor(private snackBar: MatSnackBar,private http:HttpClient,public dialogRef: MatDialogRef<ModalbajaComponent>,
  	@Inject(MAT_DIALOG_DATA) public datosMiCartera: any) { //datosMiCartera es la id que le hemos pasado metida en un JSON
 		}
 
   ngOnInit(): void {
-	
+	if(this.datosMiCartera.tipo=='CA'){ //solo si estamos en Mi Cartera, estaremos eliminando un movimiento
+		this.confirmacion="Va a eliminar el movimiento seleccionado. \u00BFDesea continuar?";
+	}else{
+		this.confirmacion="Va a eliminar la operaci\u00F3n seleccionada. \u00BFDesea continuar?";
+	}
   }
 	
 	onAceptar(){

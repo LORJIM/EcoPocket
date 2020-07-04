@@ -14,6 +14,7 @@ export class ModalaltaComponent implements OnInit {
 	form: FormGroup;
 	tipo:any;
 	importe:any;
+	fechaActual:any;
 	plataforma:any;
 	fecha:any;
 	mensaje:any;
@@ -28,7 +29,21 @@ export class ModalaltaComponent implements OnInit {
 		}
 
   ngOnInit(): void {
-	
+	var d = new Date();
+	var anio=d.getFullYear();
+	var mes = d.getMonth()+1;
+	var dia=d.getDate();
+	if(dia<10){
+       var dd='0'+dia.toString();
+    }else{
+		var dd=dia.toString();
+	}
+    if(mes<10){
+        var mm='0'+mes.toString();
+    }else{
+		var mm=mes.toString();
+	}
+	this.fechaActual=anio+"-"+mm+"-"+dd;//establecemos la fecha maxima (hoy) para el input fecha, evitando que metan operaciones que aun no se han realizado
   }
 	
 	onAceptar(){

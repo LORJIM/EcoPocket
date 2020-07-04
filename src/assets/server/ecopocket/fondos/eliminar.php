@@ -17,7 +17,9 @@
 		}else{
 			$resultado=$conexion->query("SELECT Profit,Fecha FROM Fondos WHERE ID='$ID'");
 			$datosOperacion = $resultado-> fetch_assoc(); //basandonos en la ID, recuperamos el profit y la fecha de la operacion en concreto
-			$profitActual = $conexion->query("SELECT Profit FROM Profitfondos WHERE Fecha='".$datosOperacion["Fecha"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
+			$resultado2 = $conexion->query("SELECT Profit FROM Profitfondos WHERE Fecha='".$datosOperacion["Fecha"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
+			$fila=$resultado2-> fetch_assoc();
+			$profitActual=$fila["Profit"]; //todo esto es necesario para poder conseguir el profit del dia y trabajar con el en las lineas de abajo
 			$profitActual-=$datosOperacion["Profit"]; //actualizamos dicho profit restando el de esta operacion, ya que la vamos a eliminar
 			$conexion->query("UPDATE Profitfondos SET Profit='$profitActual' WHERE Fecha='".$datosOperacion["Fecha"]."'"); //actualizamos el nuevo profit en BBDD
 			$eliminar = "DELETE FROM Fondos WHERE ID='$ID'"; //una vez eliminado el profit general, eliminamos la operacion
@@ -26,7 +28,7 @@
 				require "../actividad/CaptarIP.php";
 				$ip=get_client_ip();
 				require "../actividad/RegistroEliminar.php";
-				Registro($ID,$ip);
+				Registro($ID,$ip,'O'); //esa O le indicara al registroeliminar que se trata de una operacion
 			}
 			else{
 				$mensaje="Ha ocurrido un error inesperado";
