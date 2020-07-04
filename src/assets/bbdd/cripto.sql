@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2020 a las 22:33:13
+-- Tiempo de generación: 30-06-2020 a las 12:44:45
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -38,7 +38,8 @@ CREATE TABLE `cripto` (
   `ValorCompra` double NOT NULL,
   `ValorVenta` double DEFAULT NULL,
   `Dividendos` double DEFAULT NULL,
-  `Detalles` varchar(255) COLLATE latin1_general_cs DEFAULT NULL
+  `Detalles` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `Profit` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
 --

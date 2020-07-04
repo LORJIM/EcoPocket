@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2020 a las 22:33:06
+-- Tiempo de generación: 30-06-2020 a las 12:44:41
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -39,8 +39,18 @@ CREATE TABLE `fondos` (
   `Rentabilidad` double NOT NULL,
   `Dividendo` varchar(100) COLLATE latin1_general_cs NOT NULL,
   `PorcentajeDiv` double DEFAULT NULL,
-  `Detalles` varchar(255) COLLATE latin1_general_cs DEFAULT NULL
+  `Detalles` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `Profit` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+--
+-- Volcado de datos para la tabla `fondos`
+--
+
+INSERT INTO `fondos` (`ID`, `Usuario`, `Estado`, `Fecha`, `Tipo`, `Cantidad`, `Empresa`, `Rentabilidad`, `Dividendo`, `PorcentajeDiv`, `Detalles`, `Profit`) VALUES
+(1, 'LORJIM', NULL, '2020-06-25', 'Acción', 200, 'Bankia', 32, 'yeah', 23, NULL, NULL),
+(2, 'LORJIM', NULL, '2020-06-10', 'Bienes', 43, NULL, 32, 'No', NULL, NULL, NULL),
+(3, 'Lady12', NULL, '2020-06-24', 'ra', 132, NULL, 31, 'we', 32, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -60,7 +70,7 @@ ALTER TABLE `fondos`
 -- AUTO_INCREMENT de la tabla `fondos`
 --
 ALTER TABLE `fondos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

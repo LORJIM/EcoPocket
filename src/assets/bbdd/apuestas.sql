@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2020 a las 22:33:17
+-- Tiempo de generación: 30-06-2020 a las 12:44:49
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -37,7 +37,8 @@ CREATE TABLE `apuestas` (
   `Cantidad` double NOT NULL,
   `Cuota` double NOT NULL,
   `Casa` varchar(255) COLLATE latin1_spanish_ci NOT NULL,
-  `Detalles` varchar(255) COLLATE latin1_spanish_ci DEFAULT NULL
+  `Detalles` varchar(255) COLLATE latin1_spanish_ci DEFAULT NULL,
+  `Profit` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --

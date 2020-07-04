@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2020 a las 22:33:00
+-- Tiempo de generación: 30-06-2020 a las 12:42:35
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -36,7 +36,8 @@ CREATE TABLE `hogar` (
   `Tipo` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `Importe` double NOT NULL,
   `Causa` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
-  `Detalles` varchar(255) COLLATE latin1_spanish_ci DEFAULT NULL
+  `Detalles` varchar(255) COLLATE latin1_spanish_ci DEFAULT NULL,
+  `Profit` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --

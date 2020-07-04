@@ -27,82 +27,78 @@ body {
 /*estos heights son necesarios para que el panel solo ocupe el espacio imprescindible
 web responsive*/
 	
-  @media screen and (min-width: 1030px)   and (max-width: 1366px) { /*portatiles*/
+@media screen and (min-width: 1030px)   and (max-width: 1366px) { /*portatiles*/
 	.panel{
-	height: 22%;
-
+		height: 22%;
 	}
 	.smallBox{
 		height: 390px;
 	}
 	.limiter{
-	height: 70%;
-
+		height: 70%;
 	  }
-	
-.icon-btn[name="alta"] {
-    margin-left: 220px;
-    border-radius: 30px;
-    margin-top: 170px;
-}
-.icon-btn[name="baja"] {
-    margin-left: 600px;
-    border-radius: 30px;
-}
+		
+	.icon-btn[name="alta"] {
+	    margin-left: 220px;
+	    border-radius: 30px;
+	    margin-top: 170px;
+	}
+	.icon-btn[name="baja"] {
+	    margin-left: 600px;
+	    border-radius: 30px;
+	}
 	.total {
-    font-size: 20px;
+    	font-size: 20px;
 	}
 	.form-control[name="desplegable"] {
-    width: 80%;
+    	width: 80%;
+	}
+
+	/*OPERACIONES*/
+	.fechas{
+		margin-left: 300px;
+	}
+	.literalprofit{
+		margin-left: 50px;
+	}
 }
-/*OPERACIONES*/
-.fechas{
-	margin-left: 300px;
-}
-.literalprofit{
-	margin-left: 50px;
-}
-  }
-  @media screen and (min-width: 1370px)  and (max-width: 2000px)  { /*escritorio*/
+@media screen and (min-width: 1370px)  and (max-width: 2000px)  { /*escritorio*/
 	
 	  .limiter{
 		height: 79%;
-
 	  }
 	  
+	.icon-btn[name="alta"] {
+	    margin-left: 400px;
+	    border-radius:50px;
+	    margin-top: 460px;
+	}  
 	.smallBox{
 		height: 700px;
 	}
-.icon-btn[name="baja"] {
-    margin-left: 1000px;
-    border-radius: 50px;
-}
-.icon-btn[name="alta"] {
-    margin-left: 400px;
-    border-radius:50px;
-    margin-top: 460px;
-}  
-
+	.icon-btn[name="baja"] {
+	    margin-left: 1000px;
+	    border-radius: 50px;
+	}
 	.panel{
-	height: 13%;
-
+		height: 13%;
 	}
 	
-.form-control[name="desplegable"] {
-	width: 40%;
-}
+	.form-control[name="desplegable"] {
+		width: 40%;
+	}
 	.total {
-    font-size: 30px;
+    	font-size: 30px;
 	}
 	
-/*OPERACIONES*/
-.fechas{
-	margin-left: 500px;
+	/*OPERACIONES*/
+	.fechas{
+		margin-left: 500px;
+	}
+	.literalprofit{
+		margin-left: 100px;
+	}
 }
-.literalprofit{
-	margin-left: 100px;
-}
-  }
 .total {
   font-family: Arial Black;
   color: #73ebbd;
@@ -158,7 +154,7 @@ web responsive*/
     padding-left: 10px;
 }
 /*OPERACIONES*/
-#rentabilidad, .literaldividendo{
+#rentabilidad, .literaldividendo, .literaldetalles{
 	padding-left: 20px;
 }
 .literalprofit{
@@ -166,4 +162,13 @@ web responsive*/
 }
 .oculto{
 	display: none;
+}
+.textoverde{
+  	color: lightgreen;
+}
+.textoamarillo{
+  	color: yellow;
+}
+.textorojo{
+  	color: red;
 }

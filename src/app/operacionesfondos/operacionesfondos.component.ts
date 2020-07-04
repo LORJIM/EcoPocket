@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChildren } from '@angular/core';
 import {NavegacionService} from '../navegacion.service';
 import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ModalaltafondosComponent } from '../modalaltafondos/modalaltafondos.component';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalbajaComponent } from '../modalbaja/modalbaja.component';
 
 @Component({
   selector: 'app-operacionesfondos',
@@ -10,11 +13,12 @@ import { Router } from '@angular/router';
 })
 export class OperacionesfondosComponent implements OnInit {
   private _url:string=localStorage.getItem("host")+"ecopocket/fondos/seleccionar.php";
+  private _url2:string=localStorage.getItem("host")+"ecopocket/fondos/resolverOperacion.php";
   mensaje:any;
   arrayProfit:any;
   dataSource:any;
   @ViewChildren('registros') listaregistros: any; //esto es un listener
-  constructor(private router: Router,private http:HttpClient,private nav: NavegacionService) { }
+  constructor(private router: Router,public dialog: MatDialog,private http:HttpClient,private nav: NavegacionService) { }
 
   ngOnInit(): void {
     if(this.nav.data==undefined){ //si no se ha logeado un usuario, se redirige al login
@@ -36,10 +40,26 @@ export class OperacionesfondosComponent implements OnInit {
               element[i].className="oculto";
             }
           }
-          var element=$(".profit, .porcdividendo"); //el elemento del html
+          var element=$(".estado"); //el elemento del html que se muestra si hay estado
+          var element2=$(".sinestado"); //el elemento html que se muestra si no hay estado (3 botones)
           for(var i=0;i<element.length;i++){
             if(element[i].innerHTML==""){
-              element[i].parentElement.className="oculto";
+              element[i].className="oculto";
+            }else{
+              element2[i].className="oculto"; //ocultamos botones
+              if(element[i].innerHTML=="Ganancia"){ //aplicamos el color de texto segun el tipo de estado
+                element[i].className="textoverde";
+              }if(element[i].innerHTML=="Neutro"){
+                element[i].className="textoamarillo";
+              }if(element[i].innerHTML=="P\u00E9rdida"){
+                element[i].className="textorojo";
+              }
+            }
+          }
+          var element=$(".profit, .porcdividendo, .detalles"); //el elemento del html
+          for(var i=0;i<element.length;i++){
+            if(element[i].innerHTML==""){
+              element[i].parentElement.className="oculto"; //utilizamos el parentElement para ocultar tambien sus cabeceras o literales
             }
           }
   }
@@ -76,9 +96,41 @@ export class OperacionesfondosComponent implements OnInit {
 			}
 		});
   }
+  onResolverOperacion(event: any,estado: string){
+    var ID=event.target.children.id.innerHTML; //el boton en concreto que estamos haciendo click, contiene un elemento hidden donde tenemos almacenada la ID
+    var datos={ID: ID, estado:estado}; 
+    this.http.post(this._url2,datos).subscribe(data=>{ 
+	var lol=data;
+      this.consulta(); //refrescar consulta
+		});
+  }
+
+  onAlta(){
+    const dialogRef = this.dialog.open(ModalaltafondosComponent, {
+      		width: '1000px',
+			height: '650px',
+    	});
+		dialogRef.afterClosed().subscribe(() => { 
+			//cuando se cierre la modal de alta tambien refrescamos
+			this.consulta(); 
+		} ); 
+  }
 
   onBaja(event: any){
-
+    var ID=event.target.children.id.innerHTML; //el boton en concreto que estamos haciendo click, contiene un elemento hidden donde tenemos almacenada la ID
+    const dialogRef = this.dialog.open(ModalbajaComponent, { //abrimos la ventana de confirmacion
+			data:{ //este data sera el JSON que contenga la ID
+        ID:ID, //le pasamos la id en el matdialogdata
+        tipo:'I' //indicador de que venimos de Fondos de Inversion
+			},
+      		width: '800px',
+			height: '200px',
+    	});
+		dialogRef.afterClosed().subscribe(resultado => { 
+			if(resultado==1){ //si devuelve un 1 significa que ha aceptado la eliminacion, por lo que refrescamos
+				this.consulta(); 
+			}
+		} ); 
   }
 
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
@@ -10,15 +10,24 @@
   		<div class="limiter">
   			<div class="row">
 		      <div class="columna1">
+		        <span class="total"><i>OPERACIONES FONDOS DE INVERSIÓN</i><br><br></span>
+				    <a class="btn icon-btn btn-success" type="button" name="alta" (click)="onAlta()">
+						<i class="fa fa-plus"></i> Añadir
+					</a>
 		      </div>
 		      <div class="columna2">
 		        <div class="smallBox border border-dark">{{mensaje}}
 		        	<span #registros *ngFor="let dato of dataSource">
 					<button type="button" class="fechas btn btn-info">{{dato.Fecha}}</button><span class="literalprofit">PROFIT DEL DÍA: <span class="profit">{{dato.profit}}</span></span>
 				        <h4 class="text-danger">{{dato.Tipo}}</h4>
-						<span>Cantidad: {{dato.Cantidad}} EUR</span><span id="rentabilidad">Rentabilidad Anual: {{dato.Rentabilidad}} %</span><br>
-						<span>Dividendo: {{dato.Dividendo}}</span><span class="literaldividendo">Porcentaje del Dividendo: <span class="porcdividendo">{{dato.PorcDividdendo}}</span> %</span><br>
-				        <button class="empresa btn btn-secondary mb-5" role="button">{{dato.Empresa}}</button><br>
+						<span>Cantidad: {{dato.Cantidad}} EUR</span><span id="rentabilidad">Rentabilidad Anual: {{dato.Rentabilidad}} %</span><span class="literaldetalles">Detalles Adicionales: <span class="detalles">{{dato.Detalles}}</span></span><br>
+						<span>Dividendo: {{dato.Dividendo}}</span><span class="literaldividendo">Porcentaje del Dividendo: <span class="porcdividendo">{{dato.PorcentajeDiv}}</span> %</span><br>
+						<button class="empresa btn btn-secondary mb-5" role="button">{{dato.Empresa}}</button><br><br>
+						<span class="estado">{{dato.Estado}}</span><span class="sinestado">
+						<button type="button" class="btn btn-success" (click)="onResolverOperacion($event,'Ganancia')">Ganancia<i style="display:none" id="id">{{dato.ID}}</i></button>&nbsp;&nbsp;
+						<button type="button" class="btn btn-warning" (click)="onResolverOperacion($event,'Neutro')">Neutro<i style="display:none" id="id">{{dato.ID}}</i></button>&nbsp;&nbsp;
+						<button type="button" class="btn btn-danger" (click)="onResolverOperacion($event,'P\u00E9rdida')">Pérdida<i style="display:none" id="id">{{dato.ID}}</i></button></span>
+						<br>
 				        <a class="btn icon-btn btn-danger" type="button" name="baja" (click)="onBaja($event)">
 							<i class="fa fa-close"></i> Eliminar<i style="display:none" id="id">{{dato.ID}}</i>
 						</a>

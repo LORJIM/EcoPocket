@@ -88,7 +88,8 @@ intervaloSeleccionado:any='1 d\u00EDa'; //valores por defecto
 		var ID=event.target.children.id.innerHTML; //el boton eliminar en concreto que estamos haciendo click, contiene un elemento hidden donde tenemos almacenada la ID
 		const dialogRef = this.dialog.open(ModalbajaComponent, { //abrimos la ventana de confirmacion
 			data:{ //este data sera el JSON que contenga la ID
-				ID:ID //le pasamos la id en el matdialogdata
+				ID:ID, //le pasamos la id en el matdialogdata
+				tipo: 'CA' //indicador de que venimos de Mi Cartera
 			},
       		width: '800px',
 			height: '200px',

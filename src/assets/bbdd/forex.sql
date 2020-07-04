@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2020 a las 22:33:02
+-- Tiempo de generación: 30-06-2020 a las 12:44:36
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -37,7 +37,8 @@ CREATE TABLE `forex` (
   `Importe` double NOT NULL,
   `ValorCompra` double NOT NULL,
   `ValorVenta` double DEFAULT NULL,
-  `Detalles` varchar(255) COLLATE latin1_general_cs DEFAULT NULL
+  `Detalles` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `Profit` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
 
 --
