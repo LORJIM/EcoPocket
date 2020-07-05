@@ -7,7 +7,7 @@
 
         if($archivo = fopen("../actividad/LOGS/$FileName", "a"))
         {
-        	if (fwrite($archivo, date("d-m-Y").$accion."[ID: ".$ID." / Usuario: ".$Usuario." / Estado: ".$estado." / Fecha Operación: ".$Fecha." / Tipo: ".$Tipo." / Cantidad: ".$Cantidad." EUR] Desde la direccion ".$ip. "\r\n")) 
+        	if (fwrite($archivo, date("d-m-Y").$accion."[ID: ".$ID." / Usuario: ".$Usuario." / Estado: ".$estado." / Fecha Operación: ".$Fecha." / Tipo: ".$Tipo." / Cantidad: ".$Cantidad."] Desde la direccion ".$ip. "\r\n")) 
         	{
         		 
         

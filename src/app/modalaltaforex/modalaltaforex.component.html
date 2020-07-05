@@ -1,1 +1,44 @@
-<p>modalaltaforex works!</p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div id="cabecera">
+			<h1>Añadir Operación</h1>
+		</div>
+		<form id="cuerpo" [formGroup]="form">
+			<div class="row">
+				<div class="columna1">
+					<div class="form-group">
+						<label for="form_moneda">Moneda</label>
+						<input type="text" class="form-control" id="form_moneda" formControlName="moneda" value="{{moneda}}" placeholder="Introduzca moneda">
+					</div>
+					<div class="form-group">
+					    <label for="form_importe">Importe</label>
+					    <input type="number" class="form-control" id="form_importe" formControlName="importe" value="{{importe}}" placeholder="Introduzca importe"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_fecha">Fecha</label> <!-- este onkeydown impide que el usuario meta la fecha a mano -->
+					    <input type="date" onkeydown="return false" max='{{fechaActual}}' class="form-control" id="form_fecha" placeholder="Introduzca fecha" formControlName="fecha" value="{{fecha}}"><span class="error">Campo requerido</span>
+					</div>
+				</div>
+				<div class="columna2">
+					<div class="form-group">
+					    <label for="form_valorCompra">Valor de Compra (EUR / Unidad)</label>
+					    <input type="number" class="form-control" id="form_valorCompra" formControlName="valorCompra" value="{{valorCompra}}" placeholder="Introduzca valor de compra"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_detalles">Detalles Adicionales</label> <!-- el resize del textarea impide que el usuario pueda redimensionarlo con el raton, porque estropearia la ventana modal -->
+					    <textarea style="resize: none;" maxlength="50" class="form-control" id="form_detalles" placeholder="Otros detalles" formControlName="detalles" value="{{detalles}}"></textarea>
+					</div><br>
+					<div class="botonera">
+					  <button type="button" class="btn btn-light" (click)="onCancelar()">Cancelar</button>&nbsp;&nbsp;
+					  <button type="button" class="btn btn-dark" (click)="onAceptar()">Aceptar</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

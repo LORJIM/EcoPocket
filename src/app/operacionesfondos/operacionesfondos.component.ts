@@ -100,7 +100,6 @@ export class OperacionesfondosComponent implements OnInit {
     var ID=event.target.children.id.innerHTML; //el boton en concreto que estamos haciendo click, contiene un elemento hidden donde tenemos almacenada la ID
     var datos={ID: ID, estado:estado}; 
     this.http.post(this._url2,datos).subscribe(data=>{ 
-	var lol=data;
       this.consulta(); //refrescar consulta
 		});
   }

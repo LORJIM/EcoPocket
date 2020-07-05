@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
@@ -10,9 +10,28 @@
   		<div class="limiter">
   			<div class="row">
 		      <div class="columna1">
+		        <span class="total"><i>OPERACIONES FOREX</i><br><br></span>
+				    <a class="btn icon-btn btn-success" type="button" name="alta" (click)="onAlta()">
+						<i class="fa fa-plus"></i> Añadir
+					</a>
 		      </div>
 		      <div class="columna2">
-		        <div class="smallBox border border-dark">
+		        <div class="smallBox border border-dark">{{mensaje}}
+		        	<span #registros *ngFor="let dato of dataSource">
+					<button type="button" class="fechas btn btn-info">{{dato.Fecha}}</button><span class="literalprofit">PROFIT DEL DÍA: <span class="profit">{{dato.profit}}</span></span>
+				        <h4 class="text-danger">{{dato.Moneda}}</h4>
+						<span>Importe: {{dato.Importe}} {{dato.Moneda}}</span><span class="literaldetalles">Detalles Adicionales: <span class="detalles">{{dato.Detalles}}</span></span><br>
+						<span>Valor de Compra: {{dato.ValorCompra}} EUR</span><span class="literalvalorventa">Valor de Venta: <span class="valorventa">{{dato.ValorVenta}}</span> %</span><br><br>
+						<span class="estado">{{dato.Estado}}</span><span class="sinestado">
+						<button type="button" class="btn btn-success" (click)="onResolverOperacion($event,'Ganancia')">Ganancia<i style="display:none" id="id">{{dato.ID}}</i></button>&nbsp;&nbsp;
+						<button type="button" class="btn btn-warning" (click)="onResolverOperacion($event,'Neutro')">Neutro<i style="display:none" id="id">{{dato.ID}}</i></button>&nbsp;&nbsp;
+						<button type="button" class="btn btn-danger" (click)="onResolverOperacion($event,'P\u00E9rdida')">Pérdida<i style="display:none" id="id">{{dato.ID}}</i></button></span>
+						<br>
+				        <a class="btn icon-btn btn-danger" type="button" name="baja" (click)="onBaja($event)">
+							<i class="fa fa-close"></i> Eliminar<i style="display:none" id="id">{{dato.ID}}</i>
+						</a>
+				        <hr>
+			        </span>
 		        </div>
 		      </div>
 			</div>

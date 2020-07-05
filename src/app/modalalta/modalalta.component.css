@@ -66,3 +66,6 @@ input.valid, textarea.valid{
     flex: 0 0 50.00%;
     max-width: 50.00%;
 }
+#cuerpo[name="resolver"]{ /*para las operaciones de monedas*/
+	  height:75%; 
+}

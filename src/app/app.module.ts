@@ -33,6 +33,8 @@ import { ModalaltafondosComponent } from './modalaltafondos/modalaltafondos.comp
 import { ModalaltacriptoComponent } from './modalaltacripto/modalaltacripto.component';
 import { ModalaltahogarComponent } from './modalaltahogar/modalaltahogar.component';
 import { ModalaltaapuestasComponent } from './modalaltaapuestas/modalaltaapuestas.component';
+import { ModalresolverforexComponent } from './modalresolverforex/modalresolverforex.component';
+import { ModalresolvercriptoComponent } from './modalresolvercripto/modalresolvercripto.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ModalaltaapuestasComponent } from './modalaltaapuestas/modalaltaapuesta
     ModalaltafondosComponent,
     ModalaltacriptoComponent,
     ModalaltahogarComponent,
-    ModalaltaapuestasComponent
+    ModalaltaapuestasComponent,
+    ModalresolverforexComponent,
+    ModalresolvercriptoComponent
   ],
   imports: [
     BrowserModule,
