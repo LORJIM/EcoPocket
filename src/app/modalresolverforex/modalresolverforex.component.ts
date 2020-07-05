@@ -16,7 +16,7 @@ export class ModalresolverforexComponent implements OnInit {
   constructor(fb: FormBuilder,private http:HttpClient,public dialogRef: MatDialogRef<ModalresolverforexComponent>,
         @Inject(MAT_DIALOG_DATA) public datosResolver: any) { //datosResolver es la id y estado que le hemos pasado metidos en un JSON
 			this.form = fb.group({
-				valorVenta: [this.valorVenta, Validators.required],
+				valorVenta: [this.valorVenta, Validators.required]
             });
  		}
 
