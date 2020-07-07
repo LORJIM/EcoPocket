@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2020 a las 12:44:49
+-- Tiempo de generación: 07-07-2020 a las 22:05:27
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `apuestas` (
   `ID` int(11) NOT NULL,
+  `Usuario` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `Estado` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL,
   `Fecha` date NOT NULL,
   `Deporte` varchar(255) COLLATE latin1_spanish_ci NOT NULL,

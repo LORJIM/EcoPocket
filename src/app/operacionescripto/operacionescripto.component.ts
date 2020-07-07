@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ModalaltacriptoComponent } from '../modalaltacripto/modalaltacripto.component';
 import { ModalresolvercriptoComponent } from '../modalresolvercripto/modalresolvercripto.component';
 import {MatDialog} from '@angular/material/dialog';
-import { ModalbajaComponent } from '../modalbaja/modalbaja.component'
+import { ModalbajaComponent } from '../modalbaja/modalbaja.component';
 
 @Component({
   selector: 'app-operacionescripto',

@@ -1,1 +1,52 @@
-<p>modalaltaapuestas works!</p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div id="cabecera">
+			<h1>Añadir Operación</h1>
+		</div>
+		<form id="cuerpo" [formGroup]="form">
+			<div class="row">
+				<div class="columna1">
+					<div class="form-group">
+						<label for="form_deporte">Deporte</label>
+						<input type="text" class="form-control" id="form_deporte" formControlName="deporte" value="{{deporte}}" placeholder="Introduzca deporte"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_cantidad">Cantidad Apostada</label>
+					    <input type="number" class="form-control" id="form_cantidad" formControlName="cantidad" value="{{cantidad}}" placeholder="Introduzca cantidad apostada"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_cuota">Cuota</label>
+					    <input type="number" class="form-control" id="form_cuota" formControlName="cuota" value="{{cuota}}" placeholder="Introduzca cuota"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_fecha">Fecha</label> <!-- este onkeydown impide que el usuario meta la fecha a mano -->
+					    <input type="date" onkeydown="return false" max='{{fechaActual}}' class="form-control" id="form_fecha" placeholder="Introduzca fecha" formControlName="fecha" value="{{fecha}}"><span class="error">Campo requerido</span>
+					</div>
+				</div>
+				<div class="columna2">
+					<div class="form-group">
+						<label for="form_mercado">Mercado</label>
+						<input type="text" class="form-control" id="form_mercado" formControlName="mercado" value="{{mercado}}" placeholder="Introduzca mercado"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+						<label for="form_casa">Casa de Apuestas</label>
+						<input type="text" class="form-control" id="form_casa" formControlName="casa" value="{{casa}}" placeholder="Introduzca casa de apuestas"><span class="error">Campo requerido</span>
+					</div>
+					<div class="form-group">
+					    <label for="form_detalles">Detalles Adicionales</label> <!-- el resize del textarea impide que el usuario pueda redimensionarlo con el raton, porque estropearia la ventana modal -->
+					    <textarea style="resize: none;" maxlength="50" class="form-control" id="form_detalles" placeholder="Otros detalles" formControlName="detalles" value="{{detalles}}"></textarea>
+					</div><br>
+					<div class="botonera">
+					  <button type="button" class="btn btn-light" (click)="onCancelar()">Cancelar</button>&nbsp;&nbsp;
+					  <button type="button" class="btn btn-dark" (click)="onAceptar()">Aceptar</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
