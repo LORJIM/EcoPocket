@@ -15,14 +15,14 @@
 		if($conexion->connect_errno){
 			exit("Conexion fallida. Razon: ".$conexion->connect_error);
 		}else{
-			$resultado=$conexion->query("SELECT Profit,Fecha,Usuario FROM Cripto WHERE ID='$ID'");
+			$resultado=$conexion->query("SELECT Profit,Fecha,Usuario FROM Hogar WHERE ID='$ID'");
 			$datosOperacion = $resultado-> fetch_assoc(); //basandonos en la ID, recuperamos el profit y la fecha de la operacion en concreto
-			$resultado2 = $conexion->query("SELECT Profit FROM Profitcripto WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
+			$resultado2 = $conexion->query("SELECT Profit FROM Profithogar WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
 			$fila=$resultado2-> fetch_assoc();
 			$profitActual=$fila["Profit"]; //todo esto es necesario para poder conseguir el profit del dia y trabajar con el en las lineas de abajo
 			$profitActual-=$datosOperacion["Profit"]; //actualizamos dicho profit restando el de esta operacion, ya que la vamos a eliminar
-			$conexion->query("UPDATE Profitcripto SET Profit='$profitActual' WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //actualizamos el nuevo profit en BBDD
-			$eliminar = "DELETE FROM Cripto WHERE ID='$ID'"; //una vez eliminado el profit general, eliminamos la operacion
+			$conexion->query("UPDATE Profithogar SET Profit='$profitActual' WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //actualizamos el nuevo profit en BBDD
+			$eliminar = "DELETE FROM Hogar WHERE ID='$ID'"; //una vez eliminado el profit general, eliminamos la operacion
 			if($conexion->query($eliminar)){
 				$mensaje="Se ha eliminado correctamente";
 				require "../actividad/CaptarIP.php";

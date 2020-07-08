@@ -53,11 +53,11 @@
 			}
 			$conexion->query("UPDATE Fondos SET Profit='".$profit."' WHERE ID='$ID'"); //insertamos el profit de la operacion en concreto
 			if($estado!="Neutro"){ //en estado neutro, el profit no varia, por lo que no es necesario hacer este fragmento de codigo
-				$resultado4 = $conexion->query("SELECT Profit FROM Profitfondos WHERE Fecha='".$datosOperacion["Fecha"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
+				$resultado4 = $conexion->query("SELECT Profit FROM Profitfondos WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
 				$fila=$resultado4-> fetch_assoc();
 				$profitActual=$fila["Profit"]; //todo esto es necesario para poder trabajar con el profitActual en las lineas de abajo
 				$profitActual+=$profit; //actualizamos dicho profit sumando el de esta operacion
-				$conexion->query("UPDATE Profitfondos SET Profit='$profitActual' WHERE Fecha='".$datosOperacion["Fecha"]."'"); //actualizamos el nuevo profit en BBDD
+				$conexion->query("UPDATE Profitfondos SET Profit='$profitActual' WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //actualizamos el nuevo profit en BBDD
 			}
 			require "../actividad/CaptarIP.php"; //una vez hecho todo, utilizamos los datos de operacion para registrarlos en los logs
 			$ip=get_client_ip();

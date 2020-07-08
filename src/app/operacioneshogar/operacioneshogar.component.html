@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
@@ -10,9 +10,23 @@
   		<div class="limiter">
   			<div class="row">
 		      <div class="columna1">
+		        <span class="total"><i>OPERACIONES GESTIÓN DEL HOGAR</i><br><br></span>
+				    <a class="btn icon-btn btn-success" type="button" name="alta" (click)="onAlta()">
+						<i class="fa fa-plus"></i> Añadir
+					</a>
 		      </div>
 		      <div class="columna2">
-		        <div class="smallBox border border-dark">
+		        <div class="smallBox border border-dark">{{mensaje}}
+		        	<span #registros *ngFor="let dato of dataSource">
+					<button type="button" class="fechas btn btn-info">{{dato.Fecha}}</button><span class="literalprofit">PROFIT DEL DÍA: <span class="profit">{{dato.profit}}</span></span>
+				        <h4 class="text-danger">{{dato.Tipo}}</h4>
+						<span>Importe: {{dato.Importe}} EUR</span><span class="causa">Causa: {{dato.Causa}}</span><br>
+						<span class="literaldetalles2">Detalles Adicionales: <span class="detalles">{{dato.Detalles}}</span></span><br><br>
+				        <a class="btn icon-btn btn-danger" type="button" name="baja" (click)="onBaja($event)">
+							<i class="fa fa-close"></i> Eliminar<i style="display:none" id="id">{{dato.ID}}</i>
+						</a>
+				        <hr>
+			        </span>
 		        </div>
 		      </div>
 			</div>

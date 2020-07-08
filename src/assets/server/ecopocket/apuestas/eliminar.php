@@ -15,13 +15,13 @@
 		if($conexion->connect_errno){
 			exit("Conexion fallida. Razon: ".$conexion->connect_error);
 		}else{
-			$resultado=$conexion->query("SELECT Profit,Fecha FROM Apuestas WHERE ID='$ID'");
+			$resultado=$conexion->query("SELECT Profit,Fecha,Usuario FROM Apuestas WHERE ID='$ID'");
 			$datosOperacion = $resultado-> fetch_assoc(); //basandonos en la ID, recuperamos el profit y la fecha de la operacion en concreto
-			$resultado2 = $conexion->query("SELECT Profit FROM Profitapuestas WHERE Fecha='".$datosOperacion["Fecha"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
+			$resultado2 = $conexion->query("SELECT Profit FROM Profitapuestas WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //recuperamos el profit del dia en concreto que ya habia almacenado
 			$fila=$resultado2-> fetch_assoc();
 			$profitActual=$fila["Profit"]; //todo esto es necesario para poder conseguir el profit del dia y trabajar con el en las lineas de abajo
 			$profitActual-=$datosOperacion["Profit"]; //actualizamos dicho profit restando el de esta operacion, ya que la vamos a eliminar
-			$conexion->query("UPDATE Profitapuestas SET Profit='$profitActual' WHERE Fecha='".$datosOperacion["Fecha"]."'"); //actualizamos el nuevo profit en BBDD
+			$conexion->query("UPDATE Profitapuestas SET Profit='$profitActual' WHERE Fecha='".$datosOperacion["Fecha"]."' AND Usuario='".$datosOperacion["Usuario"]."'"); //actualizamos el nuevo profit en BBDD
 			$eliminar = "DELETE FROM Apuestas WHERE ID='$ID'"; //una vez eliminado el profit general, eliminamos la operacion
 			if($conexion->query($eliminar)){
 				$mensaje="Se ha eliminado correctamente";
