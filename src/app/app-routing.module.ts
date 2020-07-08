@@ -11,6 +11,7 @@ import { OperacionesforexComponent } from './operacionesforex/operacionesforex.c
 import { OperacioneshogarComponent } from './operacioneshogar/operacioneshogar.component';
 import { OperacionescriptoComponent } from './operacionescripto/operacionescripto.component';
 import { OperacionesapuestasComponent } from './operacionesapuestas/operacionesapuestas.component';
+import { TrayectoriaComponent } from './trayectoria/trayectoria.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
     { path: 'operacionescripto', component: OperacionescriptoComponent },
     { path: 'operacionesapuestas', component: OperacionesapuestasComponent },
     { path: 'operacioneshogar', component: OperacioneshogarComponent },
+    { path: 'trayectoria', component: TrayectoriaComponent },
 
     // cualquier otra ruta redirige a la pagina principal
     { path: '**', redirectTo: '' }];

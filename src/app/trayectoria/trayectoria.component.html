@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+  		<app-cabecera></app-cabecera>
+  		<app-navegacion class="panel"></app-navegacion>
+  		<div class="limiter">
+  			<div class="row">
+		      <div class="columna1">
+		        <span class="total"><i>TRAYECTORIA </i><br><br>
+		        	<select class="form-control" name="desplegable" placeholder="Intervalo" (change)="onFiltroIntervalo($event)">
+				      <option>1 día</option>
+				      <option selected>1 semana</option>
+				      <option>1 mes</option>
+				      <option>Todo</option>
+				    </select><br>
+		  			<select class="form-control" name="desplegable" placeholder="Modo" (change)="onFiltroModo($event)">
+				      <option selected>Días</option>
+				      <option>Semanas</option>
+				      <option>Meses</option>
+				      <option>Años</option>
+				    </select></span>
+		      </div>
+		      <div class="columna2">
+		        <div class="smallBox border border-dark">{{mensaje}}
+		        	<!-- chart -->
+		        </div>
+		      </div>
+			</div>
+  		</div>
+  		<app-footer></app-footer>
+	</body>
+</html>

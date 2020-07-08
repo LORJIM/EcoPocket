@@ -35,6 +35,7 @@ import { ModalaltahogarComponent } from './modalaltahogar/modalaltahogar.compone
 import { ModalaltaapuestasComponent } from './modalaltaapuestas/modalaltaapuestas.component';
 import { ModalresolverforexComponent } from './modalresolverforex/modalresolverforex.component';
 import { ModalresolvercriptoComponent } from './modalresolvercripto/modalresolvercripto.component';
+import { TrayectoriaComponent } from './trayectoria/trayectoria.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ModalresolvercriptoComponent } from './modalresolvercripto/modalresolve
     ModalaltahogarComponent,
     ModalaltaapuestasComponent,
     ModalresolverforexComponent,
-    ModalresolvercriptoComponent
+    ModalresolvercriptoComponent,
+    TrayectoriaComponent
   ],
   imports: [
     BrowserModule,

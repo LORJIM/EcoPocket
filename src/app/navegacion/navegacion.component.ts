@@ -53,7 +53,7 @@ export class NavegacionComponent implements OnInit {
 		}
 	}
 	onTrayectoria(){
-		this.router.navigate(['/trayectoria']); //navega a Trayectoria
+		this.router.navigate(['/trayectoria'], { state: { categoria: this.nav.categoria } }); //navega a Trayectoria con el dato de Categoria
 	}
 	onMiCuenta(){
 		this.router.navigate(['/mi-cuenta']); //navega a Mi Cuenta
