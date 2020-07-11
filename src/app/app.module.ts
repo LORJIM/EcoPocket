@@ -4,6 +4,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import {NavegacionService} from './navegacion.service';
 import {RegistroService} from './registro.service';
 import {LoginService} from './login.service';
+import { ChartsModule } from 'ng2-charts';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,6 +68,7 @@ import { TrayectoriaComponent } from './trayectoria/trayectoria.component';
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
 	ReactiveFormsModule,
     FormsModule,
 	MatDialogModule,

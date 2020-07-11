@@ -12,21 +12,23 @@
 		      <div class="columna1">
 		        <span class="total"><i>TRAYECTORIA </i><br><br>
 		        	<select class="form-control" name="desplegable" placeholder="Intervalo" (change)="onFiltroIntervalo($event)">
-				      <option>1 día</option>
 				      <option selected>1 semana</option>
-				      <option>1 mes</option>
 				      <option>Todo</option>
-				    </select><br>
-		  			<select class="form-control" name="desplegable" placeholder="Modo" (change)="onFiltroModo($event)">
-				      <option selected>Días</option>
-				      <option>Semanas</option>
-				      <option>Meses</option>
-				      <option>Años</option>
 				    </select></span>
 		      </div>
 		      <div class="columna2">
 		        <div class="smallBox border border-dark">{{mensaje}}
-		        	<!-- chart -->
+		        	<div class="chart-wrapper">
+					    <canvas baseChart 
+					        [datasets]="lineChartData" 
+					        [labels]="lineChartLabels" 
+					        [options]="lineChartOptions"
+					        [colors]="lineChartColors" 
+					        [legend]="lineChartLegend" 
+					        [chartType]="lineChartType" 
+					        [plugins]="lineChartPlugins">
+					    </canvas>
+					</div>
 		        </div>
 		      </div>
 			</div>

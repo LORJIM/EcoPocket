@@ -34,14 +34,10 @@
 				break;
 		}
 		//ejecutamos la query segun intervalo de tiempo
-		if ($intervalo=='1 día'){
-			$seleccionar = "SELECT * FROM ".$tabla." WHERE Usuario ='".$user."' AND Fecha >= DATE_ADD(CURDATE(), INTERVAL -1 DAY) ORDER BY Fecha ASC";
-		}else if($intervalo=='1 semana'){
-			$seleccionar = "SELECT * FROM ".$tabla." WHERE Usuario ='".$user."' AND Fecha >= DATE_ADD(CURDATE(), INTERVAL -7 DAY) ORDER BY Fecha ASC";
-		}else if($intervalo=='1 mes'){
-			$seleccionar = "SELECT * FROM ".$tabla." WHERE Usuario ='".$user."' AND Fecha >= DATE_ADD(CURDATE(), INTERVAL -30 DAY) ORDER BY Fecha ASC";
+		if($intervalo=='1 semana'){
+			$seleccionar = "SELECT Fecha,Profit FROM ".$tabla." WHERE Usuario ='".$user."' AND Fecha >= DATE_ADD(CURDATE(), INTERVAL -7 DAY) ORDER BY Fecha ASC";
 		}else{ //todo
-			$seleccionar = "SELECT * FROM ".$tabla." WHERE Usuario ='".$user."' ORDER BY Fecha ASC";
+			$seleccionar = "SELECT Fecha,Profit FROM ".$tabla." WHERE Usuario ='".$user."' ORDER BY Fecha ASC";
 		}
 		
 		$resultados = $conexion->query($seleccionar);
